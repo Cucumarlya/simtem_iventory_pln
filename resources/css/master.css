@@ -1,0 +1,191 @@
+/* ==================== MASTER MATERIAL STYLES - CLEAN VERSION ==================== */
+
+/* SIMPAN HANYA STYLE SPESIFIK UNTUK KOMPONEN MATERIAL: */
+
+/* Kode Material Styling */
+.kode-material {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-family: 'SF Mono', Monaco, 'Cascadia Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-block;
+    border: 1px solid #7dd3fc;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+}
+
+.status-aman {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+}
+
+.status-peringatan {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fbbf24;
+}
+
+.status-bahaya {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #f87171;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn-view {
+    background: #3b82f6;
+    color: white;
+}
+
+.action-btn-edit {
+    background: #f59e0b;
+    color: white;
+}
+
+.action-btn-delete {
+    background: #ef4444;
+    color: white;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Search Box */
+.search-container {
+    position: relative;
+    max-width: 300px;
+}
+
+.search-input-modern {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: white;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 1rem center;
+    background-size: 1.25rem;
+}
+
+.search-input-modern:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Form Elements */
+.form-input-modern {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-input-modern:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.form-select-modern {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") no-repeat right 1rem center;
+    background-size: 1.25rem;
+    appearance: none;
+    padding-right: 3rem;
+}
+
+/* Table Styles */
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.modern-table thead {
+    background: #f8fafc;
+}
+
+.modern-table th {
+    padding: 1.25rem 1.5rem;
+    color: #374151;
+    font-weight: 600;
+    text-align: left;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.modern-table td {
+    padding: 1.25rem 1.5rem;
+    color: #374151;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.modern-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modern-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.375rem;
+    }
+    
+    .action-btn {
+        width: 35px;
+        height: 35px;
+    }
+}

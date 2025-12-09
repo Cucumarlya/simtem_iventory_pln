@@ -1,0 +1,509 @@
+/* resources/css/manage-users.css */
+/* RESET DAN BASE STYLES */
+.user-management-container * {
+    box-sizing: border-box !important;
+}
+
+.user-management-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 1.5rem 2rem !important;
+    background: white !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.user-management-title {
+    display: flex !important;
+    align-items: center !important;
+    font-size: 1.75rem !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+    margin: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.user-management-icon {
+    margin-right: 0.75rem !important;
+    font-size: 2rem !important;
+    color: #2563eb !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* MAIN CONTENT AREA */
+.user-management-content {
+    padding: 2rem !important;
+    background-color: #f0f7ff !important;
+    min-height: calc(100vh - 80px) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+}
+
+/* SEARCH AND FILTER CONTAINER */
+.user-management-search-container {
+    display: flex !important;
+    gap: 1.25rem !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 2rem !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.user-management-search-box {
+    position: relative !important;
+    flex: 1 !important;
+    min-width: 300px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.user-management-search-icon {
+    position: absolute !important;
+    left: 16px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    color: #64748b !important;
+    font-size: 1.5rem !important;
+    z-index: 2 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.user-management-search-input {
+    width: 100% !important;
+    padding: 14px 20px 14px 48px !important;
+    border: 2px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    background: white !important;
+    transition: all 0.3s ease !important;
+    height: 52px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    color: #334155 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-family: inherit !important;
+}
+
+.user-management-search-input:focus {
+    outline: none !important;
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+}
+
+.user-management-filter-group {
+    display: flex !important;
+    gap: 16px !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.user-management-filter-select {
+    padding: 14px 20px !important;
+    border: 2px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    background: white !important;
+    cursor: pointer !important;
+    min-width: 160px !important;
+    height: 52px !important;
+    appearance: none !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e") !important;
+    background-position: right 16px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 18px !important;
+    padding-right: 48px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    color: #334155 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-family: inherit !important;
+}
+
+.user-management-filter-select:focus {
+    outline: none !important;
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+}
+
+/* ADD BUTTON */
+.user-management-add-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 14px 24px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    height: 52px !important;
+    background-color: #2563eb !important;
+    color: white !important;
+    border: 2px solid #2563eb !important;
+    white-space: nowrap !important;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-family: inherit !important;
+}
+
+.user-management-add-btn:hover {
+    background-color: #1d4ed8 !important;
+    border-color: #1d4ed8 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 15px rgba(37, 99, 235, 0.3) !important;
+}
+
+.user-management-add-btn:active {
+    transform: translateY(0) !important;
+}
+
+/* TABLE CONTAINER */
+.user-management-table-container {
+    background: white !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden !important;
+    border: 1px solid #e2e8f0 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.user-management-table-responsive {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: block !important;
+}
+
+/* TABLE STYLES */
+.user-management-table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    background: white !important;
+    min-width: 900px !important;
+    font-size: 16px !important;
+    display: table !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-family: inherit !important;
+}
+
+.user-management-table th {
+    background-color: #2563eb !important;
+    color: white !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 18px 20px !important;
+    border-bottom: 2px solid #1d4ed8 !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    display: table-cell !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 5 !important;
+}
+
+.user-management-table td {
+    padding: 18px 20px !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    background-color: white !important;
+    font-size: 16px !important;
+    vertical-align: middle !important;
+    transition: all 0.3s ease !important;
+    display: table-cell !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.user-management-table tbody tr {
+    transition: all 0.3s ease !important;
+    display: table-row !important;
+}
+
+.user-management-table tbody tr:hover {
+    background-color: #f8fafc !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.user-management-table tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* STATUS BADGES */
+.user-management-status-badge {
+    padding: 6px 16px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.user-management-status-active {
+    background-color: #d1fae5 !important;
+    color: #065f46 !important;
+    border: 1px solid #10b981 !important;
+}
+
+.user-management-status-inactive {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+    border: 1px solid #ef4444 !important;
+}
+
+/* ROLE TEXT */
+.user-management-role-text {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    text-transform: capitalize !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 4px 12px !important;
+    background: #f1f5f9 !important;
+    border-radius: 6px !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+/* ACTION BUTTONS */
+.user-management-action-buttons {
+    display: flex !important;
+    gap: 0.5rem !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.user-management-action-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.5rem 1rem !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    gap: 0.5rem !important;
+    font-weight: 500 !important;
+    min-width: 80px !important;
+    color: white !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+    text-decoration: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-family: inherit !important;
+}
+
+.user-management-action-btn ion-icon {
+    font-size: 16px !important;
+    color: white !important;
+    display: inline-block !important;
+}
+
+.user-management-edit-btn {
+    background: #f59e0b !important;
+    border: 1px solid #d97706 !important;
+}
+
+.user-management-edit-btn:hover {
+    background: #d97706 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 6px rgba(245, 158, 11, 0.3) !important;
+}
+
+.user-management-delete-btn {
+    background: #ef4444 !important;
+    border: 1px solid #dc2626 !important;
+}
+
+.user-management-delete-btn:hover {
+    background: #dc2626 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 6px rgba(239, 68, 68, 0.3) !important;
+}
+
+.user-management-action-btn:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+}
+
+/* EMPTY STATE */
+.user-management-empty-state {
+    text-align: center !important;
+    padding: 60px 28px !important;
+    color: #64748b !important;
+    display: table-cell !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+}
+
+.user-management-empty-state ion-icon {
+    font-size: 56px !important;
+    margin-bottom: 20px !important;
+    opacity: 0.5 !important;
+    display: block !important;
+    margin: 0 auto 20px auto !important;
+    color: #94a3b8 !important;
+}
+
+.user-management-empty-state p {
+    margin: 0 !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+}
+
+/* LOADING ANIMATION */
+@keyframes user-management-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.user-management-loading {
+    animation: user-management-spin 1s linear infinite !important;
+    display: inline-block !important;
+    color: #2563eb !important;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+    .user-management-content {
+        padding: 1.5rem !important;
+    }
+    
+    .user-management-search-container {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 1rem !important;
+    }
+    
+    .user-management-search-box {
+        min-width: auto !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .user-management-filter-group {
+        flex-wrap: wrap !important;
+        width: 100% !important;
+    }
+    
+    .user-management-filter-select {
+        flex: 1 !important;
+        min-width: calc(50% - 8px) !important;
+    }
+    
+    .user-management-add-btn {
+        flex: 1 !important;
+        min-width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-management-header {
+        padding: 1rem !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+    }
+    
+    .user-management-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .user-management-content {
+        padding: 1rem !important;
+    }
+    
+    .user-management-table {
+        min-width: 800px !important;
+        font-size: 14px !important;
+    }
+    
+    .user-management-table th,
+    .user-management-table td {
+        padding: 12px 16px !important;
+    }
+    
+    .user-management-action-buttons {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.5rem !important;
+    }
+    
+    .user-management-action-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 0.4rem 0.8rem !important;
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .user-management-filter-group {
+        flex-direction: column !important;
+    }
+    
+    .user-management-filter-select {
+        width: 100% !important;
+        min-width: auto !important;
+    }
+    
+    .user-management-add-btn {
+        width: 100% !important;
+    }
+    
+    .user-management-table-responsive {
+        margin: 0 -1rem !important;
+        width: calc(100% + 2rem) !important;
+    }
+}
+
+/* FALLBACK STYLES UNTUK JIKA UTAMA GAGAL */
+.user-management-fallback {
+    display: none !important;
+}
+
+/* DEBUG MODE - HAPUS JIKA SUDAH BERHASIL */
+.user-management-debug {
+    border: 2px solid red !important;
+}
+
+.user-management-debug * {
+    border: 1px solid rgb(28, 28, 167) !important;
+}

@@ -1,0 +1,1051 @@
+/* Stok Material Styles - PLN Professional Theme */
+.sipmatsar-stok-material {
+    --pln-blue: #0054a6;
+    --pln-blue-dark: #003d7a;
+    --pln-blue-light: #e6f0fa;
+    --pln-blue-bg: #f0f7ff;
+    --pln-green: #28a745;
+    --pln-green-light: #d4edda;
+    --pln-green-dark: #218838;
+    --pln-red: #dc3545;
+    --pln-red-light: #f8d7da;
+    --pln-red-dark: #c82333;
+    --pln-orange: #fd7e14;
+    --pln-yellow: #ffc107;
+    --pln-yellow-light: #fff3cd;
+    --pln-gray-50: #f8f9fa;
+    --pln-gray-100: #e9ecef;
+    --pln-gray-200: #dee2e6;
+    --pln-gray-300: #ced4da;
+    --pln-gray-400: #adb5bd;
+    --pln-gray-500: #6c757d;
+    --pln-gray-600: #495057;
+    --pln-gray-700: #343a40;
+    --pln-gray-800: #212529;
+    --pln-gray-900: #111827;
+    
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --shadow-xl: 0 20px 25px rgba(0,0,0,0.1);
+    
+    --border-radius: 8px;
+    --border-radius-sm: 6px;
+    --border-radius-lg: 12px;
+    
+    --transition: all 0.3s ease;
+    --transition-fast: all 0.15s ease;
+}
+
+/* Reset and Base Styles */
+.sipmatsar-stok-material * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sipmatsar-stok-material {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--pln-blue-bg);
+    line-height: 1.6;
+    color: var(--pln-gray-700);
+    font-size: 14px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    min-height: 100vh;
+}
+
+/* Tab Navigation */
+.sipmatsar-stok-material .tab-navigation-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.sipmatsar-stok-material .tab-navigation {
+    display: flex;
+    background: var(--pln-gray-50);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--pln-gray-200);
+    padding: 0.25rem;
+    gap: 0.25rem;
+}
+
+.sipmatsar-stok-material .tab-button {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    border: none;
+    border-radius: var(--border-radius);
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.sipmatsar-stok-material .tab-button:hover {
+    background: var(--pln-gray-100);
+}
+
+.sipmatsar-stok-material .tab-button.active {
+    background: white;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--pln-gray-200);
+}
+
+.sipmatsar-stok-material .tab-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    background: var(--pln-blue-light);
+    color: var(--pln-blue);
+}
+
+.sipmatsar-stok-material .tab-button.active .tab-icon {
+    background: var(--pln-blue);
+    color: white;
+}
+
+.sipmatsar-stok-material .tab-text {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+}
+
+.sipmatsar-stok-material .tab-title {
+    font-weight: 600;
+    color: var(--pln-gray-800);
+    margin-bottom: 0.125rem;
+    font-size: 1rem;
+}
+
+.sipmatsar-stok-material .tab-subtitle {
+    font-size: 0.8rem;
+    color: var(--pln-gray-500);
+    font-weight: 500;
+}
+
+.sipmatsar-stok-material .tab-button.active .tab-title {
+    color: var(--pln-blue);
+}
+
+.sipmatsar-stok-material .tab-button.active .tab-subtitle {
+    color: var(--pln-blue);
+}
+
+/* Main Content */
+.sipmatsar-stok-material .main-content {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--pln-gray-200);
+    overflow: hidden;
+}
+
+/* Tab Content */
+.sipmatsar-stok-material .tab-content {
+    position: relative;
+}
+
+.sipmatsar-stok-material .tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.sipmatsar-stok-material .tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Content Card */
+.sipmatsar-stok-material .content-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 600px;
+}
+
+/* Action Bar */
+.sipmatsar-stok-material .action-bar {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--pln-gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    background: white;
+}
+
+.sipmatsar-stok-material .action-left .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--pln-gray-900);
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sipmatsar-stok-material .action-left .section-title ion-icon {
+    color: var(--pln-blue);
+    font-size: 1.75rem;
+}
+
+.sipmatsar-stok-material .action-left .section-subtitle {
+    color: var(--pln-gray-600);
+    margin: 0;
+    font-size: 1rem;
+}
+
+.sipmatsar-stok-material .action-right {
+    flex-shrink: 0;
+}
+
+.sipmatsar-stok-material .action-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Search Box */
+.sipmatsar-stok-material .search-box {
+    position: relative;
+    min-width: 300px;
+}
+
+.sipmatsar-stok-material .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--pln-gray-400);
+    font-size: 1.25rem;
+    z-index: 1;
+}
+
+.sipmatsar-stok-material .search-input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    border: 1px solid var(--pln-gray-300);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    transition: var(--transition);
+    background: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.sipmatsar-stok-material .search-input:focus {
+    outline: none;
+    border-color: var(--pln-blue);
+    box-shadow: 0 0 0 3px rgba(0, 84, 166, 0.1);
+}
+
+.sipmatsar-stok-material .search-input::placeholder {
+    color: var(--pln-gray-400);
+    font-size: 0.95rem;
+}
+
+.sipmatsar-stok-material .search-clear {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--pln-gray-400);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 1.1rem;
+    transition: var(--transition);
+    display: none;
+}
+
+.sipmatsar-stok-material .search-clear:hover {
+    color: var(--pln-gray-600);
+    background: var(--pln-gray-100);
+}
+
+.sipmatsar-stok-material .search-clear.show {
+    display: block;
+}
+
+/* Export Buttons */
+.sipmatsar-stok-material .export-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sipmatsar-stok-material .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+}
+
+.sipmatsar-stok-material .btn-pdf {
+    background: var(--pln-red);
+    color: white;
+}
+
+.sipmatsar-stok-material .btn-pdf:hover {
+    background: var(--pln-red-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.sipmatsar-stok-material .btn-excel {
+    background: var(--pln-green);
+    color: white;
+}
+
+.sipmatsar-stok-material .btn-excel:hover {
+    background: var(--pln-green-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.sipmatsar-stok-material .btn-primary {
+    background: var(--pln-blue);
+    color: white;
+}
+
+.sipmatsar-stok-material .btn-primary:hover {
+    background: var(--pln-blue-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Table Section */
+.sipmatsar-stok-material .table-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    flex: 1;
+}
+
+.sipmatsar-stok-material .table-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 300px);
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar styling */
+.sipmatsar-stok-material .table-container::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+
+.sipmatsar-stok-material .table-container::-webkit-scrollbar-track {
+    background: var(--pln-gray-100);
+    border-radius: var(--border-radius-sm);
+}
+
+.sipmatsar-stok-material .table-container::-webkit-scrollbar-thumb {
+    background: var(--pln-gray-300);
+    border-radius: var(--border-radius-sm);
+    border: 2px solid var(--pln-gray-100);
+}
+
+.sipmatsar-stok-material .table-container::-webkit-scrollbar-thumb:hover {
+    background: var(--pln-gray-400);
+}
+
+.sipmatsar-stok-material .table-container::-webkit-scrollbar-corner {
+    background: var(--pln-gray-100);
+}
+
+/* Modern Table */
+.sipmatsar-stok-material .modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 0.9rem;
+    border: 1px solid var(--pln-gray-300);
+}
+
+/* Table Headers */
+.sipmatsar-stok-material .modern-table thead {
+    background: var(--pln-blue);
+}
+
+.sipmatsar-stok-material .modern-table th {
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 0.75rem;
+    border-bottom: 2px solid var(--pln-blue-dark);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    text-align: left;
+    background: var(--pln-blue);
+    border-right: 1px solid var(--pln-blue-dark);
+}
+
+.sipmatsar-stok-material .modern-table th.text-center {
+    text-align: center;
+}
+
+/* Table Data Cells */
+.sipmatsar-stok-material .modern-table td {
+    padding: 0.875rem 0.75rem;
+    border-bottom: 1px solid var(--pln-gray-200);
+    border-right: 1px solid var(--pln-gray-200);
+    vertical-align: middle;
+    transition: var(--transition);
+    font-size: 0.875rem;
+    white-space: nowrap;
+    background: white;
+}
+
+.sipmatsar-stok-material .modern-table td.text-center {
+    text-align: center;
+}
+
+.sipmatsar-stok-material .modern-table tbody tr {
+    transition: var(--transition);
+    background: white;
+}
+
+.sipmatsar-stok-material .modern-table tbody tr:hover {
+    background: var(--pln-gray-50);
+}
+
+/* Loading State */
+.sipmatsar-stok-material .loading-state {
+    padding: 3rem 1rem;
+}
+
+.sipmatsar-stok-material .loading-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.sipmatsar-stok-material .loading-icon {
+    font-size: 1.75rem;
+    color: var(--pln-blue);
+}
+
+.sipmatsar-stok-material .loading-text {
+    color: var(--pln-gray-600);
+    font-size: 1.1rem;
+}
+
+/* Material Cell */
+.sipmatsar-stok-material .material-cell {
+    min-width: 250px;
+}
+
+.sipmatsar-stok-material .material-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sipmatsar-stok-material .material-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.sipmatsar-stok-material .material-name {
+    font-weight: 600;
+    color: var(--pln-gray-800);
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+/* Value Styles */
+.sipmatsar-stok-material .row-number {
+    font-weight: 600;
+    color: var(--pln-gray-600);
+    font-size: 0.95rem;
+}
+
+.sipmatsar-stok-material .stock-value {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--pln-gray-700);
+}
+
+.sipmatsar-stok-material .stock-value.positive {
+    color: var(--pln-green);
+}
+
+.sipmatsar-stok-material .stock-value.negative {
+    color: var(--pln-red);
+}
+
+.sipmatsar-stok-material .stock-value.info {
+    color: var(--pln-blue);
+    font-weight: 600;
+}
+
+.sipmatsar-stok-material .usage-value {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--pln-gray-800);
+}
+
+/* Badges */
+.sipmatsar-stok-material .stock-badge,
+.sipmatsar-stok-material .difference-badge {
+    color: var(--pln-gray-700);
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    display: inline-block;
+    min-width: auto;
+    text-align: center;
+}
+
+.sipmatsar-stok-material .stock-badge.positive {
+    color: var(--pln-green);
+}
+
+.sipmatsar-stok-material .stock-badge.negative {
+    color: var(--pln-red);
+}
+
+.sipmatsar-stok-material .difference-badge.positive {
+    color: var(--pln-green);
+}
+
+.sipmatsar-stok-material .difference-badge.negative {
+    color: var(--pln-red);
+}
+
+.sipmatsar-stok-material .koef-value {
+    color: var(--pln-gray-700);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-block;
+    min-width: auto;
+}
+
+.sipmatsar-stok-material .koef-value.positive {
+    color: var(--pln-green);
+}
+
+.sipmatsar-stok-material .koef-value.negative {
+    color: var(--pln-red);
+}
+
+/* Keterangan Text */
+.sipmatsar-stok-material .keterangan-text {
+    font-size: 0.9rem;
+    color: var(--pln-gray-600);
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Normalization Code */
+.sipmatsar-stok-material .normalization-code {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.sipmatsar-stok-material .code-value {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--pln-blue);
+    background: var(--pln-blue-light);
+    padding: 0.625rem 0.875rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--pln-blue);
+}
+
+.sipmatsar-stok-material .btn-copy {
+    background: none;
+    border: none;
+    color: var(--pln-gray-500);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition);
+    font-size: 1.125rem;
+}
+
+.sipmatsar-stok-material .btn-copy:hover {
+    background: var(--pln-gray-100);
+    color: var(--pln-gray-700);
+}
+
+/* Action Buttons */
+.sipmatsar-stok-material .action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.sipmatsar-stok-material .btn-action {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.625rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    white-space: nowrap;
+    gap: 0.5rem;
+    min-width: 90px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    line-height: 1.2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sipmatsar-stok-material .btn-action:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.sipmatsar-stok-material .btn-edit {
+    background: linear-gradient(135deg, var(--pln-yellow), #e0a800);
+    color: white;
+    border: 1px solid var(--pln-yellow);
+}
+
+.sipmatsar-stok-material .btn-edit:hover {
+    background: linear-gradient(135deg, #e0a800, #d39e00);
+    border-color: #e0a800;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+.sipmatsar-stok-material .btn-delete {
+    background: linear-gradient(135deg, var(--pln-red), var(--pln-red-dark));
+    color: white;
+    border: 1px solid var(--pln-red);
+}
+
+.sipmatsar-stok-material .btn-delete:hover {
+    background: linear-gradient(135deg, var(--pln-red-dark), #bd2130);
+    border-color: var(--pln-red-dark);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.sipmatsar-stok-material .btn-action i {
+    font-size: 0.8rem;
+}
+
+/* Table Footer */
+.sipmatsar-stok-material .table-footer {
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid var(--pln-gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: var(--pln-gray-50);
+}
+
+.sipmatsar-stok-material .footer-info,
+.sipmatsar-stok-material .footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sipmatsar-stok-material .pagination-info {
+    font-size: 1rem;
+    color: var(--pln-gray-600);
+}
+
+.sipmatsar-stok-material .pagination-info strong {
+    color: var(--pln-gray-800);
+}
+
+.sipmatsar-stok-material .last-update {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--pln-gray-500);
+}
+
+.sipmatsar-stok-material .last-update ion-icon {
+    font-size: 1rem;
+}
+
+/* Modal Styles */
+.sipmatsar-stok-material .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.sipmatsar-stok-material .modal-content {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 0;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.sipmatsar-stok-material .modal-header {
+    padding: 1.75rem 2rem;
+    border-bottom: 1px solid var(--pln-gray-200);
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sipmatsar-stok-material .modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--pln-gray-800);
+    margin: 0;
+}
+
+.sipmatsar-stok-material .modal-close {
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: var(--pln-gray-500);
+    cursor: pointer;
+    padding: 0.375rem;
+    border-radius: 4px;
+    transition: var(--transition-fast);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sipmatsar-stok-material .modal-close:hover {
+    color: var(--pln-gray-700);
+    background: var(--pln-gray-200);
+}
+
+.sipmatsar-stok-material .modal-body {
+    padding: 2rem;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.sipmatsar-stok-material .modal-footer {
+    padding: 1.75rem 2rem;
+    border-top: 1px solid var(--pln-gray-200);
+    background: var(--pln-gray-50);
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.sipmatsar-stok-material .modal-btn {
+    padding: 0.875rem 1.75rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.95rem;
+    min-width: 120px;
+}
+
+.sipmatsar-stok-material .modal-btn-cancel {
+    background: white;
+    color: var(--pln-gray-700);
+    border: 1px solid var(--pln-gray-300);
+}
+
+.sipmatsar-stok-material .modal-btn-cancel:hover {
+    background: var(--pln-gray-100);
+    border-color: var(--pln-gray-400);
+}
+
+.sipmatsar-stok-material .modal-btn-confirm {
+    background: var(--pln-blue);
+    color: white;
+}
+
+.sipmatsar-stok-material .modal-btn-confirm:hover {
+    background: var(--pln-blue-dark);
+}
+
+.sipmatsar-stok-material .modal-btn-danger {
+    background: var(--pln-red);
+    color: white;
+}
+
+.sipmatsar-stok-material .modal-btn-danger:hover {
+    background: var(--pln-red-dark);
+}
+
+/* Confirmation Modal Styles */
+.sipmatsar-stok-material .confirmation-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.sipmatsar-stok-material .confirmation-icon {
+    font-size: 3.5rem;
+    color: var(--pln-orange);
+    flex-shrink: 0;
+}
+
+.sipmatsar-stok-material .confirmation-text h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--pln-gray-800);
+    margin-bottom: 0.5rem;
+}
+
+.sipmatsar-stok-material .confirmation-text p {
+    color: var(--pln-gray-600);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Notification */
+.sipmatsar-stok-material .notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1.25rem 1.75rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    z-index: 1001;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    max-width: 400px;
+    border-left: 4px solid var(--pln-blue);
+    background: white;
+}
+
+.sipmatsar-stok-material .notification.show {
+    transform: translateX(0);
+}
+
+.sipmatsar-stok-material .notification.success {
+    border-left-color: var(--pln-green);
+}
+
+.sipmatsar-stok-material .notification.error {
+    border-left-color: var(--pln-red);
+}
+
+.sipmatsar-stok-material .notification.info {
+    border-left-color: var(--pln-blue);
+}
+
+.sipmatsar-stok-material .notification-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sipmatsar-stok-material .notification-icon {
+    font-size: 1.5rem;
+}
+
+.sipmatsar-stok-material .notification.success .notification-icon {
+    color: var(--pln-green);
+}
+
+.sipmatsar-stok-material .notification.error .notification-icon {
+    color: var(--pln-red);
+}
+
+.sipmatsar-stok-material .notification.info .notification-icon {
+    color: var(--pln-blue);
+}
+
+.sipmatsar-stok-material .notification-text h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: var(--pln-gray-800);
+}
+
+.sipmatsar-stok-material .notification-text p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--pln-gray-600);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sipmatsar-stok-material {
+        font-size: 15px;
+        padding: 0.75rem;
+    }
+    
+    .sipmatsar-stok-material .tab-navigation {
+        flex-direction: column;
+    }
+    
+    .sipmatsar-stok-material .tab-button {
+        justify-content: flex-start;
+        padding: 1rem 1.25rem;
+    }
+    
+    .sipmatsar-stok-material .action-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .sipmatsar-stok-material .action-right {
+        width: 100%;
+    }
+    
+    .sipmatsar-stok-material .action-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .sipmatsar-stok-material .search-box {
+        min-width: 100%;
+    }
+    
+    .sipmatsar-stok-material .export-buttons {
+        width: 100%;
+        justify-content: stretch;
+    }
+    
+    .sipmatsar-stok-material .export-buttons .btn {
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .sipmatsar-stok-material .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .sipmatsar-stok-material .table-footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+    
+    .sipmatsar-stok-material .table-container {
+        max-height: calc(100vh - 400px);
+    }
+    
+    .sipmatsar-stok-material .modern-table {
+        font-size: 0.85rem;
+    }
+    
+    .sipmatsar-stok-material .modern-table th {
+        font-size: 0.8rem;
+        padding: 1rem 0.5rem;
+    }
+    
+    .sipmatsar-stok-material .modern-table td {
+        font-size: 0.8rem;
+        padding: 0.875rem 0.5rem;
+    }
+    
+    .sipmatsar-stok-material .btn-action {
+        min-width: 80px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sipmatsar-stok-material .action-bar {
+        padding: 1.5rem;
+    }
+    
+    .sipmatsar-stok-material .table-footer {
+        padding: 1.25rem;
+    }
+    
+    .sipmatsar-stok-material .material-cell {
+        min-width: 200px;
+    }
+    
+    .sipmatsar-stok-material .material-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .sipmatsar-stok-material .modal-content {
+        margin: 1rem;
+        max-height: calc(100vh - 2rem);
+    }
+    
+    .sipmatsar-stok-material .btn-action {
+        min-width: 70px;
+        padding: 0.5rem 0.625rem;
+        font-size: 0.7rem;
+    }
+    
+    .sipmatsar-stok-material .btn-action span {
+        display: none;
+    }
+    
+    .sipmatsar-stok-material .btn-action i {
+        margin-right: 0;
+        font-size: 0.8rem;
+    }
+    
+    .sipmatsar-stok-material .action-buttons {
+        gap: 0.375rem;
+    }
+}
