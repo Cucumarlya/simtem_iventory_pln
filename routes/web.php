@@ -18,6 +18,7 @@ use App\Http\Controllers\Petugas\PengeluaranController;
 use App\Http\Controllers\Petugas\PenerimaanYanbungController;
 use App\Http\Controllers\Petugas\PengeluaranYanbungController;
 use App\Http\Middleware\CheckUserRole;
+use Illuminate\Support\Facades\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('auth')->group(function () {
     // Dashboard utama yang akan redirect berdasarkan role
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    
+
     // Dashboard berdasarkan role
     Route::middleware([CheckUserRole::class . ':admin'])->group(function () {
         Route::get('/dashboard/admin', [DashboardController::class, 'admin'])->name('dashboard.admin');
@@ -52,11 +53,11 @@ Route::middleware('auth')->group(function () {
             return redirect()->route('dashboard.admin');
         })->name('admin.dashboard');
     });
-    
+
     Route::middleware([CheckUserRole::class . ':petugas'])->group(function () {
         Route::get('/dashboard/petugas', [DashboardPetugasController::class, 'index'])->name('dashboard.petugas');
     });
-    
+
     Route::middleware([CheckUserRole::class . ':petugas_yanbung'])->group(function () {
         Route::get('/dashboard/petugas_yanbung', [DashboardController::class, 'petugas_yanbung'])->name('dashboard.petugas_yanbung');
     });
@@ -64,45 +65,45 @@ Route::middleware('auth')->group(function () {
 
 // ================== ROUTES UNTUK ADMIN ================== //
 Route::middleware(['auth', CheckUserRole::class . ':admin'])->prefix('admin')->name('admin.')->group(function () {
-    
+
     // Dashboard admin
     Route::get('/dashboard', [DashboardController::class, 'admin'])->name('dashboard');
-    
+
     // ================== TRANSAKSI MATERIAL ================== //
     Route::prefix('transaksi')->name('transaksi.')->group(function () {
         // Index dan CRUD - ROUTE UTAMA
         Route::get('/', [TransaksiMaterialController::class, 'index'])->name('index');
-        
+
         // Route untuk form create berdasarkan jenis
         Route::get('/create/{jenis}', [TransaksiMaterialController::class, 'create'])
             ->where('jenis', 'penerimaan|pengeluaran')
             ->name('create');
-        
+
         // Alias untuk route create (tanpa parameter) - redirect ke index
-        Route::get('/create', function() {
+        Route::get('/create', function () {
             return redirect()->route('admin.transaksi.index');
         });
-        
+
         Route::post('/', [TransaksiMaterialController::class, 'store'])->name('store');
         Route::get('/{transaksi}', [TransaksiMaterialController::class, 'show'])->name('show');
         Route::get('/{transaksi}/edit', [TransaksiMaterialController::class, 'edit'])->name('edit');
         Route::put('/{transaksi}', [TransaksiMaterialController::class, 'update'])->name('update');
         Route::delete('/{transaksi}', [TransaksiMaterialController::class, 'destroy'])->name('destroy');
-        
+
         // Export & Print Routes
         Route::get('/export/excel', [TransaksiMaterialController::class, 'exportExcel'])->name('export.excel');
         Route::get('/export/pdf', [TransaksiMaterialController::class, 'exportPdf'])->name('export.pdf');
         Route::get('/export/csv', [TransaksiMaterialController::class, 'exportCsv'])->name('export.csv');
         Route::get('/print', [TransaksiMaterialController::class, 'print'])->name('print');
         Route::get('/{id}/print', [TransaksiMaterialController::class, 'printSingle'])->name('print.single');
-        
+
         // Verification Routes
         Route::post('/{id}/setujui', [TransaksiMaterialController::class, 'setujui'])->name('setujui');
         Route::post('/{id}/kembalikan', [TransaksiMaterialController::class, 'kembalikan'])->name('kembalikan');
-        
+
         // API untuk AJAX
         Route::get('/data/json', [TransaksiMaterialController::class, 'getDataJson'])->name('data.json');
-        
+
         // By jenis
         Route::get('/jenis/{jenis}', [TransaksiMaterialController::class, 'byJenis'])
             ->where('jenis', 'penerimaan|pengeluaran')
@@ -121,18 +122,18 @@ Route::middleware(['auth', CheckUserRole::class . ':admin'])->prefix('admin')->n
             Route::delete('/{id}', [MaterialController::class, 'destroy'])->name('destroy');
             Route::get('/search', [MaterialController::class, 'search'])->name('search');
             Route::get('/export/excel', [MaterialController::class, 'exportExcel'])->name('export.excel');
-            
+
             // AJAX routes
-            Route::get('/ajax/search', function(Request $request) {
+            Route::get('/ajax/search', function (Request $request) {
                 try {
                     $search = $request->get('search', '');
-                    $materials = \App\Models\Material::where(function($query) use ($search) {
-                            $query->where('nama_material', 'like', "%{$search}%")
-                                  ->orWhere('kode_material', 'like', "%{$search}%");
-                        })
+                    $materials = \App\Models\Material::where(function ($query) use ($search) {
+                        $query->where('nama_material', 'like', "%{$search}%")
+                            ->orWhere('kode_material', 'like', "%{$search}%");
+                    })
                         ->orderBy('created_at', 'desc')
                         ->paginate(10);
-                    
+
                     return view('admin.master.partials.material-table', compact('materials'))->render();
                 } catch (\Exception $e) {
                     return response()->json(['error' => $e->getMessage()], 500);
@@ -140,7 +141,7 @@ Route::middleware(['auth', CheckUserRole::class . ':admin'])->prefix('admin')->n
             })->name('ajax.search');
         });
     });
-    
+
     // ================== ALIAS UNTUK COMPATIBILITY ================== //
     Route::prefix('material')->name('material.')->group(function () {
         Route::get('/', function () {
@@ -158,7 +159,7 @@ Route::middleware(['auth', CheckUserRole::class . ':admin'])->prefix('admin')->n
         })->name('edit');
         Route::put('/{id}', [MaterialController::class, 'update'])->name('update');
         Route::delete('/{id}', [MaterialController::class, 'destroy'])->name('destroy');
-        Route::get('/search', function(Request $request) {
+        Route::get('/search', function (Request $request) {
             return redirect()->route('admin.master.material.search', $request->all());
         })->name('search');
     });
@@ -225,8 +226,8 @@ Route::middleware(['auth', CheckUserRole::class . ':admin'])->prefix('admin')->n
         Route::put('/{user}', [UserController::class, 'update'])->name('update');
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
         Route::get('/search', [UserController::class, 'search'])->name('search');
-        
-        Route::get('/user-view', function() {
+
+        Route::get('/user-view', function () {
             return view('admin.kelola_user.index');
         })->name('user-view');
     });
@@ -273,7 +274,7 @@ Route::middleware(['auth', CheckUserRole::class . ':admin'])->prefix('admin')->n
 // ================== ROUTES UNTUK PETUGAS ================== //
 Route::middleware(['auth', CheckUserRole::class . ':petugas'])->prefix('petugas')->name('petugas.')->group(function () {
     Route::get('/dashboard', [DashboardPetugasController::class, 'index'])->name('dashboard');
-    
+
     Route::prefix('penerimaan')->name('penerimaan.')->group(function () {
         Route::get('/', [PenerimaanController::class, 'index'])->name('index');
         Route::get('/create', [PenerimaanController::class, 'create'])->name('create');
@@ -285,7 +286,7 @@ Route::middleware(['auth', CheckUserRole::class . ':petugas'])->prefix('petugas'
         Route::get('/export/excel', [PenerimaanController::class, 'exportExcel'])->name('export.excel');
         Route::get('/{id}/print', [PenerimaanController::class, 'print'])->name('print');
     });
-    
+
     Route::prefix('pengeluaran')->name('pengeluaran.')->group(function () {
         Route::get('/', [PengeluaranController::class, 'index'])->name('index');
         Route::get('/create', [PengeluaranController::class, 'create'])->name('create');
@@ -304,7 +305,7 @@ Route::middleware(['auth', CheckUserRole::class . ':petugas_yanbung'])->prefix('
     Route::get('/dashboard', function () {
         return view('petugas_yanbung.dashboard.index');
     })->name('dashboard');
-    
+
     Route::prefix('penerimaan')->name('penerimaan.')->group(function () {
         Route::get('/', [PenerimaanYanbungController::class, 'index'])->name('index');
         Route::get('/create', [PenerimaanYanbungController::class, 'create'])->name('create');
@@ -315,7 +316,7 @@ Route::middleware(['auth', CheckUserRole::class . ':petugas_yanbung'])->prefix('
         Route::delete('/{id}', [PenerimaanYanbungController::class, 'destroy'])->name('destroy');
         Route::get('/export/excel', [PenerimaanYanbungController::class, 'exportExcel'])->name('export.excel');
     });
-    
+
     Route::prefix('pengeluaran')->name('pengeluaran.')->group(function () {
         Route::get('/', [PengeluaranYanbungController::class, 'index'])->name('index');
         Route::get('/create', [PengeluaranYanbungController::class, 'create'])->name('create');
@@ -344,7 +345,7 @@ Route::middleware('auth')->group(function () {
             return view('profile.notifications');
         })->name('notifications');
     });
-    
+
     Route::prefix('notifications')->name('notifications.')->group(function () {
         Route::get('/', function () {
             return view('notifications.index');
@@ -356,7 +357,7 @@ Route::middleware('auth')->group(function () {
             return view('notifications.all');
         })->name('all');
     });
-    
+
     Route::prefix('help')->name('help.')->group(function () {
         Route::get('/', function () {
             return view('help.index');
@@ -375,7 +376,7 @@ Route::middleware(['auth'])->prefix('api')->name('api.')->group(function () {
     // Transaksi routes
     Route::get('/transaksi', [TransaksiMaterialController::class, 'apiIndex']);
     Route::get('/transaksi/{id}', [TransaksiMaterialController::class, 'apiShow']);
-    
+
     // Export routes
     Route::get('/export/transaksi/excel', [TransaksiMaterialController::class, 'exportExcel']);
     Route::get('/export/transaksi/pdf', [TransaksiMaterialController::class, 'exportPdf']);
@@ -389,15 +390,15 @@ Route::middleware(['auth', CheckUserRole::class . ':admin'])->group(function () 
     Route::get('/transaksi', function () {
         return redirect()->route('admin.transaksi.index');
     })->name('transaksi.index');
-    
+
     Route::get('/transaksi/create/penerimaan', function () {
         return redirect()->route('admin.transaksi.create', ['jenis' => 'penerimaan']);
     })->name('transaksi.create.penerimaan');
-    
+
     Route::get('/transaksi/create/pengeluaran', function () {
         return redirect()->route('admin.transaksi.create', ['jenis' => 'pengeluaran']);
     })->name('transaksi.create.pengeluaran');
-    
+
     // Other Aliases
     Route::get('/stok-material', function () {
         return redirect()->route('admin.rekap-stok.index');
@@ -408,7 +409,7 @@ Route::middleware(['auth', CheckUserRole::class . ':admin'])->group(function () 
     Route::get('/master/materials', function () {
         return redirect()->route('admin.master.material.index');
     })->name('master.material.index');
-    
+
     Route::get('/users', function () {
         return redirect()->route('admin.users.index');
     })->name('users.index');
@@ -418,14 +419,14 @@ Route::middleware(['auth', CheckUserRole::class . ':admin'])->group(function () 
     Route::get('/users/{user}/edit', function ($user) {
         return redirect()->route('admin.users.edit', $user);
     })->name('users.edit');
-    
+
     Route::get('/kelola-user', function () {
         return redirect()->route('admin.users.index');
     })->name('kelola-user.index');
     Route::get('/kelola-user/search', function (Request $request) {
         return redirect()->route('admin.users.search', $request->all());
     })->name('kelola-user.search');
-    
+
     Route::get('/new-material', function () {
         return redirect()->route('admin.new-material.index');
     })->name('new-material.index');
@@ -453,11 +454,11 @@ Route::middleware(['auth', CheckUserRole::class . ':admin'])->group(function () 
     Route::get('/transaksi/pengeluaran', function () {
         return redirect()->route('admin.transaksi.index', ['tab' => 'pengeluaran']);
     })->name('transaksi.pengeluaran');
-    
+
     Route::get('/transaksi/rhwayat', function () {
         return redirect()->route('admin.riwayat-verifikasi.index');
     })->name('transaksi.rhwayat');
-    
+
     // Export aliases
     Route::get('/transaksi/export', function () {
         return redirect()->route('admin.transaksi.export.excel');
@@ -524,12 +525,12 @@ Route::middleware(['auth', CheckUserRole::class . ':petugas_yanbung'])->group(fu
 });
 
 // ================== DEBUG & TEST ROUTES ================== //
-Route::get('/debug/material/{id}', function($id) {
+Route::get('/debug/material/{id}', function ($id) {
     $material = \App\Models\Material::find($id);
     $hasTransactions = \App\Models\MaterialTransaksi::where('material_id', $id)->exists();
-    
+
     $columns = \Illuminate\Support\Facades\Schema::getColumnListing('materials');
-    
+
     return response()->json([
         'material' => $material,
         'has_transactions' => $hasTransactions,
@@ -542,16 +543,16 @@ Route::get('/debug/material/{id}', function($id) {
     ]);
 })->name('debug.material');
 
-Route::get('/test-simple', function() {
+Route::get('/test-simple', function () {
     return "Hello World! Sistem berjalan.";
 })->name('test.simple');
 
-Route::get('/test-material-list', function() {
+Route::get('/test-material-list', function () {
     $materials = \App\Models\Material::all();
     return response()->json([
         'success' => true,
         'count' => $materials->count(),
-        'materials' => $materials->map(function($material) {
+        'materials' => $materials->map(function ($material) {
             return [
                 'id' => $material->id,
                 'kode_material' => $material->kode_material,
@@ -564,18 +565,18 @@ Route::get('/test-material-list', function() {
     ]);
 })->name('test.material.list');
 
-Route::get('/test-transaksi-details', function() {
+Route::get('/test-transaksi-details', function () {
     $transaksi = \App\Models\TransaksiMaterial::with(['details.material'])->first();
-    
+
     if (!$transaksi) {
         return response()->json(['error' => 'Tidak ada transaksi'], 404);
     }
-    
+
     return response()->json([
         'success' => true,
         'transaksi' => $transaksi,
         'details_count' => $transaksi->details->count(),
-        'details' => $transaksi->details->map(function($detail) {
+        'details' => $transaksi->details->map(function ($detail) {
             return [
                 'id' => $detail->id,
                 'material_id' => $detail->material_id,
@@ -587,7 +588,7 @@ Route::get('/test-transaksi-details', function() {
     ]);
 })->name('test.transaksi.details');
 
-Route::get('/test-material-status-error', function() {
+Route::get('/test-material-status-error', function () {
     try {
         $materials = \App\Models\Material::where('status', 'aktif')->get();
         return response()->json(['success' => true, 'materials' => $materials]);
@@ -600,7 +601,7 @@ Route::get('/test-material-status-error', function() {
     }
 })->name('test.material.status.error');
 
-Route::get('/test-user-route', function() {
+Route::get('/test-user-route', function () {
     return response()->json([
         'success' => true,
         'routes' => [
@@ -614,10 +615,10 @@ Route::get('/test-user-route', function() {
 })->name('test.user.route');
 
 // ================== HEALTH CHECK ================== //
-Route::get('/health', function() {
+Route::get('/health', function () {
     $databaseConnected = false;
     $databaseName = 'N/A';
-    
+
     try {
         \DB::connection()->getPdo();
         $databaseConnected = true;
@@ -625,7 +626,7 @@ Route::get('/health', function() {
     } catch (\Exception $e) {
         $databaseConnected = false;
     }
-    
+
     return response()->json([
         'status' => 'OK',
         'timestamp' => now()->toDateTimeString(),
@@ -651,7 +652,7 @@ Route::get('/health', function() {
     ]);
 })->name('health.check');
 
-Route::get('/maintenance', function() {
+Route::get('/maintenance', function () {
     return view('maintenance');
 })->name('maintenance');
 
@@ -666,7 +667,7 @@ Route::fallback(function () {
             'method' => request()->method()
         ], 404);
     }
-    
+
     return response()->view('errors.404', [
         'title' => 'Halaman Tidak Ditemukan',
         'message' => 'Halaman yang Anda cari tidak ditemukan.',
